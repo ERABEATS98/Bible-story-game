@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Bible Story Game",
+    "slug": "bible-story-game",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTabletMode": true,
+      "bundleIdentifier": "com.erabeats.biblestorygame",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.erabeats.biblestorygame",
+      "versionCode": 1
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "react-native-reanimated/plugin"
+    ],
+    "orientation": "portrait",
+    "primaryColor": "#6366f1",
+    "userInterfaceStyle": "light"
+  }
+}
