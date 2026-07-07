@@ -1,6 +1,8 @@
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import leaderboardRouter from './routes/leaderboard';
+import progressRouter from './routes/progress';
 
 dotenv.config();
 
@@ -11,43 +13,25 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// Health check
 app.get('/api/health', (req: Request, res: Response) => {
   res.json({ status: 'Server is running' });
 });
 
-// Leaderboard endpoint
-app.get('/api/leaderboard', (req: Request, res: Response) => {
-  // TODO: Fetch from database
-  res.json({
-    leaderboard: [
-      { rank: 1, playerName: 'FaithfulGamer', score: 5000, level: 10 },
-      { rank: 2, playerName: 'BibleHero', score: 4500, level: 9 },
-      { rank: 3, playerName: 'StoryTeller', score: 4000, level: 8 }
-    ]
-  });
-});
+// Routes
+app.use('/api', leaderboardRouter);
+app.use('/api', progressRouter);
 
-// Player progress endpoint
-app.post('/api/progress/save', (req: Request, res: Response) => {
-  const { userId, progress } = req.body;
-  // TODO: Save to database
-  res.json({ success: true, message: 'Progress saved' });
-});
-
-// Get player progress
-app.get('/api/progress/:userId', (req: Request, res: Response) => {
-  const { userId } = req.params;
-  // TODO: Fetch from database
-  res.json({
-    userId,
-    totalPoints: 0,
-    level: 1,
-    completedStories: [],
-    unlockedStories: ['david-goliath']
+// 404 handler
+app.use((req: Request, res: Response) => {
+  res.status(404).json({
+    success: false,
+    error: 'Route not found'
   });
 });
 
 app.listen(PORT, () => {
   console.log(`⚡️ Server running at http://localhost:${PORT}`);
+  console.log(`📊 Leaderboard: http://localhost:${PORT}/api/leaderboard`);
+  console.log(`👤 Player Progress: http://localhost:${PORT}/api/progress/:userId`);
 });
