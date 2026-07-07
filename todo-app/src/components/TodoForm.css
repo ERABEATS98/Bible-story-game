@@ -1,0 +1,235 @@
+.todo-form {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.app.dark .todo-form {
+  background: rgba(30, 30, 40, 0.9);
+  color: #e0e0e0;
+}
+
+.todo-form h2 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.app.dark .todo-form h2 {
+  color: #e0e0e0;
+}
+
+.todo-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.app.dark .form-group label {
+  color: #bbb;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group select {
+  padding: 12px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: white;
+  color: #333;
+}
+
+.app.dark .form-group input[type="text"],
+.app.dark .form-group input[type="date"],
+.app.dark .form-group textarea,
+.app.dark .form-group select {
+  background: rgba(50, 50, 60, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.char-count {
+  font-size: 0.8rem;
+  color: #999;
+  text-align: right;
+}
+
+.app.dark .char-count {
+  color: #aaa;
+}
+
+/* Priority Buttons */
+.priority-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.priority-btn {
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  color: #555;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.app.dark .priority-btn {
+  background: rgba(50, 50, 60, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #bbb;
+}
+
+.priority-btn:hover {
+  transform: translateY(-2px);
+}
+
+.priority-btn.active {
+  color: white;
+  border-color: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.priority-btn.active.low {
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+  border-color: #56ab2f;
+}
+
+.priority-btn.active.medium {
+  background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+  border-color: #f5af19;
+}
+
+.priority-btn.active.high {
+  background: linear-gradient(135deg, #f5576c 0%, #c21f1f 100%);
+  border-color: #f5576c;
+}
+
+/* Advanced Options */
+.toggle-advanced {
+  padding: 10px;
+  background: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  color: #667eea;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.app.dark .toggle-advanced {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #88b3ff;
+}
+
+.toggle-advanced:hover {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.advanced-options {
+  border-top: 2px solid #e0e0e0;
+  padding-top: 15px;
+  animation: slideDown 0.3s ease;
+}
+
+.app.dark .advanced-options {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+  }
+}
+
+/* Category Input */
+.category-input {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.category-input select,
+.category-input input[type="text"] {
+  min-width: 0;
+}
+
+/* Submit Button */
+.submit-btn {
+  padding: 14px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .todo-form {
+    padding: 20px;
+  }
+
+  .priority-buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .category-input {
+    grid-template-columns: 1fr;
+  }
+}

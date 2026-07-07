@@ -1,0 +1,322 @@
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  gap: 12px;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.app.dark .todo-item {
+  background: rgba(50, 50, 60, 0.5);
+}
+
+.todo-item:hover {
+  background: #f9f9f9;
+  transform: translateX(4px);
+}
+
+.app.dark .todo-item:hover {
+  background: rgba(50, 50, 60, 0.8);
+}
+
+.todo-item.completed {
+  opacity: 0.6;
+}
+
+.todo-item.overdue {
+  border-left-color: #f5576c;
+  background: #fff5f6;
+}
+
+.app.dark .todo-item.overdue {
+  background: rgba(245, 87, 108, 0.1);
+}
+
+.todo-item.editing {
+  background: rgba(102, 126, 234, 0.05);
+  border: 2px solid #667eea;
+  border-radius: 8px;
+}
+
+.app.dark .todo-item.editing {
+  background: rgba(102, 126, 234, 0.1);
+}
+
+/* Content */
+.todo-content {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.todo-checkbox {
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.todo-text {
+  flex: 1;
+}
+
+.todo-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  word-break: break-word;
+}
+
+.app.dark .todo-title {
+  color: #e0e0e0;
+}
+
+.todo-item.completed .todo-title {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 6px 0 0 0;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.app.dark .todo-description {
+  color: #aaa;
+}
+
+.todo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Meta Badges */
+.meta-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #f0f0f0;
+  color: #555;
+}
+
+.app.dark .meta-badge {
+  background: rgba(255, 255, 255, 0.1);
+  color: #bbb;
+}
+
+.meta-badge.category {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+  color: #667eea;
+}
+
+.app.dark .meta-badge.category {
+  color: #88b3ff;
+}
+
+.meta-badge.date {
+  background: linear-gradient(135deg, rgba(0, 150, 200, 0.2) 0%, rgba(0, 100, 150, 0.2) 100%);
+  color: #0066cc;
+}
+
+.app.dark .meta-badge.date {
+  color: #66b3ff;
+}
+
+.meta-badge.date.overdue {
+  background: linear-gradient(135deg, rgba(245, 87, 108, 0.2) 0%, rgba(200, 50, 80, 0.2) 100%);
+  color: #f5576c;
+}
+
+.meta-badge.priority {
+  font-weight: 700;
+}
+
+.meta-badge.priority.high {
+  background: rgba(245, 87, 108, 0.2);
+  color: #f5576c;
+}
+
+.meta-badge.priority.low {
+  background: rgba(86, 171, 47, 0.2);
+  color: #56ab2f;
+}
+
+/* Actions */
+.todo-actions {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 6px 10px;
+  background: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+
+.app.dark .edit-btn,
+.app.dark .delete-btn {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.todo-item:hover .edit-btn,
+.todo-item:hover .delete-btn {
+  opacity: 1;
+}
+
+.edit-btn:hover {
+  background: rgba(102, 126, 234, 0.1);
+  border-color: #667eea;
+}
+
+.delete-btn:hover {
+  background: rgba(245, 87, 108, 0.1);
+  border-color: #f5576c;
+}
+
+/* Edit Form */
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-title,
+.edit-description {
+  padding: 10px 12px;
+  border: 2px solid #667eea;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: white;
+  color: #333;
+}
+
+.app.dark .edit-title,
+.app.dark .edit-description {
+  background: rgba(50, 50, 60, 0.8);
+  color: #e0e0e0;
+  border-color: #667eea;
+}
+
+.edit-description {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.edit-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.edit-priority,
+.edit-date {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.edit-priority label,
+.edit-date label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.edit-priority select,
+.edit-date input {
+  padding: 8px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: white;
+  color: #333;
+}
+
+.app.dark .edit-priority select,
+.app.dark .edit-date input {
+  background: rgba(50, 50, 60, 0.8);
+  color: #e0e0e0;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save-btn,
+.cancel-btn {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+}
+
+.cancel-btn {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.app.dark .cancel-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+.cancel-btn:hover {
+  background: #d0d0d0;
+}
+
+.app.dark .cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .todo-item {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .todo-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .edit-meta {
+    grid-template-columns: 1fr;
+  }
+}

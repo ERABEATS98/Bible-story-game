@@ -1,0 +1,28 @@
+.todo-list {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.app.dark .todo-list {
+  background: rgba(30, 30, 40, 0.9);
+}
+
+.todo-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .todo-list {
+    border-radius: 8px;
+  }
+
+  .todo-items {
+    gap: 8px;
+    padding: 8px;
+  }
+}
